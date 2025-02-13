@@ -9,7 +9,7 @@ M.start = function (file)
         if M.node_proc == nil then
             local _, pid = vim.uv.spawn(
                 "/usr/sbin/node",
-                { stdout = stdout, args = { M.plugin_path("js/build/index.js") } },
+                { stdout = stdout, args = { M.plugin_path("build/index.js") } },
                 function (code)
                     print("Reveal stopped with code", code)
                 end
