@@ -9,6 +9,17 @@
     import Math from 'reveal.js/plugin/math/math.js';
 
     const { data } = $props();
+    const markdown = data.markdown.split("\n\n---\n\n").map(n => n.trim());
+    let sections = [];
+
+    for (let sect of markdown) {
+        let slides = [];
+        for (let slide of sect.split("\n\n\n")) {
+            slides.push(slide);
+        }
+        sections.push(slides);
+    }
+
     const initReveal = () => {
         let deck = new Reveal({
             plugins: [Markdown, Highlight, Notes, Math],
@@ -18,10 +29,14 @@
 
 </script>
 
-<section data-markdown>
-    <div type="text/template">
-        { data.markdown }
-    </div>
-</section>
+{#each sections as sect}
+    <section>
+        {#each sect as sub}
+            <section data-markdown>
+                {sub}
+            </section>
+        {/each}
+    </section>
+{/each}
 
 { initReveal() }
