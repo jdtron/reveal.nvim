@@ -19,6 +19,14 @@ The slides will be openend automatically in your browser using xdg-open.
 
 To stop the server run `:RevealStop`, close the buffer or quit Nvim.
 
+### 📝 Formatting
+By default, assets are loaded from `assets/`.
+
+| Desc              | Format |
+|-------------------|--------|
+| Separatte slides  | `\n\n` |
+| Separate sections | `---`  |
+
 ## 🧑‍💻 Roadmap
 Please note this plugin is pretty much wip.
 
